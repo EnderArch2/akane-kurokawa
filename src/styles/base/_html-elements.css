@@ -8,6 +8,10 @@
       width: 100%;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--color-bg);
       min-height: 100vh;

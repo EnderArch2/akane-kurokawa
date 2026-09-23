@@ -1,8 +1,8 @@
 {
-  "logoSource": "/src/assets/images/component-docs/acs-logo.svg",
-  "logoAlternateSource": "/src/assets/images/component-docs/acs-logo-dark.svg",
-  "logoAlt": "Astro Component Starter",
-  "themeToggle": true,
+  "logoSource": "/images/logo.webp",
+  "logoAlternateSource": "/images/logo.webp",
+  "logoAlt": "Akane Kurokawa",
+  "themeToggle": false,
   "navData": [
     {
       "name": "Home",
@@ -10,31 +10,20 @@
       "children": []
     },
     {
-      "name": "Why",
-      "path": "/why/",
+      "name": "About",
+      "path": "#about",
       "children": []
     },
     {
-      "name": "Components",
-      "path": "/component-docs/",
+      "name": "Gallery",
+      "path": "#gallery",
       "children": []
     },
     {
-      "name": "Blog",
-      "path": "/blog/",
+      "name": "Quotes",
+      "path": "#quotes",
       "children": []
     }
   ],
-  "buttonSections": [
-    {
-      "_component": "building-blocks/core-elements/button",
-      "text": "Search",
-      "hideText": true,
-      "link": "/search/",
-      "iconName": "magnifying-glass",
-      "iconPosition": "before",
-      "variant": "ghost",
-      "size": "lg"
-    }
-  ]
+  "buttonSections": []
 }

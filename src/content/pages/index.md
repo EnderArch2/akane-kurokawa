@@ -1,162 +1,115 @@
 ---
 _schema: default
-title: Home
+title: Akane Kurokawa — Fan Tribute
 description: >-
-  Astro Component Starter: fast, visually editable components for Astro and CloudCannon—docs,
-  blog, and patterns for shipping real sites.
+  A fan tribute to Akane Kurokawa, the chameleon actress of the LALALAI Theater
+  Company from Oshi no Ko.
 pageSections:
   - _component: page-sections/heroes/hero-center
-    eyebrow:
-    heading: The Astro Component Starter for building any site
-    subtext: >-
-      Built on web fundamentals. Easy to customize, fast to use, and simple to
-      maintain.
-    buttonSections:
-      - _component: building-blocks/core-elements/button
-        text: Explore Components
-        hideText: false
-        link: /component-docs/
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-      - _component: building-blocks/core-elements/button
-        text: View in GitHub
-        hideText: false
-        link: https://github.com/CloudCannon/astro-component-starter
-        iconName: ''
-        iconPosition: before
-        variant: secondary
-        size: md
+    eyebrow: LALALAI Theater Company
+    heading: Akane Kurokawa
+    subtext: The girl who could become anyone.
+    buttonSections: []
     colorScheme: inherit
     backgroundColor: base
+    class: akane-hero
+
   - _component: page-sections/features/feature-split
-    eyebrow: Built for Astro
-    heading: Fast, modern, and easy to work with
+    eyebrow: ''
+    heading: A chameleon born for the stage
     subtext: >-
-      The Component Starter takes full advantage of Astro's zero-JS-by-default
-      approach. You get fast pages, simple routing, and a component system that
-      stays easy to use as your site grows.
+      Akane Kurokawa is an actress at the LALALAI Theater Company whose gift goes
+      beyond talent — she doesn't play a character, she *becomes* one. Reserved
+      and almost invisible offstage, she transforms the instant a spotlight finds
+      her: posture, voice, gaze, soul. All of it changes.
+
+      Her arc from overlooked background actress to celebrated lead was never
+      about ambition. It was about survival — and then, quietly, about art.
     buttonSections: []
-    imageSource: /src/assets/images/component-docs/website-feature.svg
-    imageAlt: Website Feature
-    imageAspectRatio: none
-    imageRounded: false
+    imageSource: /images/gallery/akane-1.webp
+    imageAlt: Akane Kurokawa
+    imageAspectRatio: portrait
+    imageRounded: true
     reverse: false
-    colorScheme: inherit
-    backgroundColor: base
-  - _component: page-sections/features/feature-split
-    eyebrow: CloudCannon Ready
-    heading: Easy visual editing
-    subtext: >-
-      Every component is built to work seamlessly in CloudCannon's Visual
-      Editor. Developers can create and style custom Page Sections with Astro.
-      Editors can click, change, and rearrange content right on the page without
-      touching the code or guessing where anything lives.
-    buttonSections: []
-    imageSource: /src/assets/images/component-docs/website-split.svg
-    imageAlt: Website Split
-    imageAspectRatio: none
-    imageRounded: false
-    reverse: true
-    colorScheme: inherit
-    backgroundColor:
-    paddingVertical: lg
-  - _component: page-sections/features/feature-split
-    eyebrow: Performance
-    heading: Fast by architecture, not by accident
-    subtext: >-
-      Your components render to static HTML, keeping bundles lean and pages
-      instant. Your users get instant page loads. You get a modern developer
-      experience.
-    buttonSections: []
-    imageSource: /src/assets/images/component-docs/website-hero.svg
-    imageAlt: Website Hero
-    imageAspectRatio: none
-    imageRounded: false
-    reverse: false
-    colorScheme: inherit
-    backgroundColor: base
-  - _component: page-sections/features/feature-split
-    eyebrow: Documentation
-    heading: Every component, clearly documented
-    subtext: >-
-      Each component comes with straightforward docs, real examples, full
-      descriptions of every property, and clear guidance without having to dig
-      through source files.
-    buttonSections: []
-    imageSource: /src/assets/images/component-docs/website-documented.svg
-    imageAlt: Website Hero
-    imageAspectRatio: none
-    imageRounded: false
-    reverse: true
-    colorScheme: inherit
-    backgroundColor: base
-  - _component: page-sections/features/feature-grid
-    eyebrow: Principles
-    heading: Built for real-world web projects
-    subtext: No trends. No noise. Just reliability.
-    gap: xl
-    minItemWidth: 280
-    maxItemWidth: 360
-    features:
-      - title: Web fundamentals
-        description: >-
-          Semantic HTML. Lean CSS. JavaScript only when it's needed. The stack
-          is boring by design, and that’s exactly why it works.
-        iconName: cube
-        iconColor: blue
-      - title: Built for speed
-        description: >-
-          Static-rendered, minimal payloads, zero waste. Built to be extremely
-          fast from the first byte.
-        iconName: bolt
-        iconColor: yellow
-      - title: Everything just fits
-        description: >-
-          Simple, predictable components that play nice together. Build bigger
-          pieces without creating a maintenance mess.
-        iconName: puzzle-piece
-        iconColor: green
-      - title: Controlled editing
-        description: >-
-          Enough freedom for editors to move fast. Enough structure for
-          developers to sleep at night.
-        iconName: pencil
-        iconColor: purple
-      - title: Adaptable
-        description: >-
-          Purposefully plain styling. The whole component starter adapts to your
-          designs without a fight.
-        iconName: paint-brush
-        iconColor: pink
     colorScheme: inherit
     backgroundColor: surface
-    alignmentHorizontal: center
-  - _component: page-sections/ctas/cta-center
-    heading: Ready to start building?
+    id: about
+
+  - _component: page-sections/features/feature-split
+    eyebrow: ''
+    heading: She doesn't perform. She disappears into the role.
     subtext: >-
-      Browse the complete Astro Component Starter and see live examples of every
-      component in action. All components are ready to use in CloudCannon and
-      are fully customizable.
-    buttonSections:
-      - _component: building-blocks/core-elements/button
-        text: Explore Components
-        hideText: false
-        link: /component-docs/
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-      - _component: building-blocks/core-elements/button
-        text: View in GitHub
-        hideText: false
-        link: https://github.com/CloudCannon/astro-component-starter
-        iconName: ''
-        iconPosition: before
-        variant: tertiary
-        size: md
+      Most actors wear a character. Akane dissolves into one. She studies the
+      smallest behavioral tells — the way a person holds tension in their
+      shoulders, the exact timing of a glance — and reconstructs an entire human
+      being from the inside out.
+
+      Critics called it uncanny. Co-stars called it humbling. She called it the
+      only way she knew how to exist.
+
+      Her most discussed performance echoed the presence of Ai Hoshino — not
+      because she imitated her, but because she understood the same inner
+      paradox: a radiant exterior held together by private loneliness.
+    buttonSections: []
+    imageSource: /images/gallery/akane-3.webp
+    imageAlt: Akane Kurokawa in character
+    imageAspectRatio: portrait
+    imageRounded: true
+    reverse: true
+    colorScheme: inherit
+    backgroundColor: base
+
+  - _component: page-sections/gallery/placeholder-gallery
+    eyebrow: ''
+    heading: In the spotlight
+    subtext: >-
+      Fan art collection showcasing Akane's many faces.
+    id: gallery
+    items:
+      - source: /images/gallery/akane-1.webp
+        alt: Akane in stage costume
+        caption: Stage presence
+        tone: '#3E8E8E'
+      - source: /images/gallery/akane-2.webp
+        alt: Akane offstage, quiet moment
+        caption: Offstage
+        tone: '#243447'
+      - source: /images/gallery/akane-3.webp
+        alt: Akane mid-performance
+        caption: The transformation
+        tone: '#C9A24B'
+      - source: /images/gallery/akane-4.webp
+        alt: Akane portrait
+        caption: Portrait
+        tone: '#3E8E8E'
+      - source: /images/gallery/akane-5.webp
+        alt: Akane as Ai Hoshino
+        caption: The parallel
+        tone: '#C99B9B'
+      - source: /images/gallery/akane-6.webp
+        alt: Akane close-up
+        caption: The beauty mark
+        tone: '#243447'
+
+  - _component: page-sections/quotes/spotlight-quotes
+    eyebrow: ''
+    heading: Lines that stay with you
+    subtext: Memorable quotes from Akane's journey in Oshi no Ko.
+    id: quotes
+    quotes:
+      - text: I want to understand people. To become someone else completely.
+        label: Season 1 · The Method Actor
+      - text: Acting isn't about pretending. It's about understanding the truth of a person.
+        label: Season 1 · LoveNow Arc
+      - text: I'll show you what I'm capable of. I'll become the person you see.
+        label: Season 1 · Episode 7
+
+  - _component: page-sections/ctas/cta-center
+    heading: Dark slate hair that gradients to teal, teal eyes, a beauty mark under her left eye.
+    subtext: >-
+      Akane Kurokawa is a fictional character from Oshi no Ko (Aka Akasaka &
+      Mengo Yokoyari).
+    buttonSections: []
     colorScheme: dark
     backgroundColor: surface
-    rounded: false
 ---

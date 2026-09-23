@@ -34,6 +34,98 @@
   }
 }
 
+/* ─── Hero overrides ────────────────────────────────────── */
+@layer page-sections {
+  .akane-hero {
+    min-height: 90svh;
+    overflow: hidden;
+    position: relative;
+
+    > .outer-content > .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 90svh;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 9vw, var(--font-size-heading-4xl));
+      letter-spacing: -0.04em;
+    }
+
+    .eyebrow {
+      color: var(--color-brand-muted);
+      letter-spacing: 0.22em;
+    }
+
+    .subtext p {
+      color: var(--color-text-muted);
+      font-size: var(--font-size-xl);
+    }
+
+    .hero-banner-placeholder {
+      aspect-ratio: 21 / 9;
+      background-image: url('/images/banner.webp');
+      background-size: cover;
+      background-position: center;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      justify-content: center;
+      margin-top: auto;
+      max-width: 100%;
+      min-height: 200px;
+      width: 100%;
+    }
+
+    .hero-banner-placeholder::after {
+      content: none;
+    }
+
+    @media (width < 768px) {
+      .hero-banner-placeholder {
+        aspect-ratio: 16 / 9;
+        min-height: 150px;
+      }
+    }
+  }
+
+  /* Feature-split image placeholder when no image src is provided */
+  .feature-split .feature-split-image:not(:has(img)) {
+    align-items: center;
+    aspect-ratio: var(--ratio-portrait);
+    background:
+      radial-gradient(
+        circle at 40% 30%,
+        color-mix(in srgb, var(--color-brand) 18%, transparent),
+        transparent 48%
+      ),
+      radial-gradient(
+        circle at 70% 70%,
+        color-mix(in srgb, var(--color-spotlight) 16%, transparent),
+        transparent 45%
+      ),
+      var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    display: flex;
+    justify-content: center;
+    min-height: 280px;
+    width: 100%;
+  }
+
+  .feature-split .feature-split-image:not(:has(img))::after {
+    color: var(--color-text-muted);
+    content: "Fan art placeholder";
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;

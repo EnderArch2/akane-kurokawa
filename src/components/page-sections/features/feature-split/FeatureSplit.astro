@@ -35,7 +35,7 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
 ---
 
 <CustomSection
-  class:list={["feature-split", className]}
+  class:list={["feature-split", reverse && "reverse", className]}
   label={sectionLabel}
   maxContentWidth={maxContentWidth}
   paddingHorizontal={paddingHorizontal}
@@ -83,16 +83,27 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
         data-children-prop="buttonSections"
       />
     </Fragment>
-    <Image
-      slot="second"
-      class:list={["feature-split-image", reverse && "reverse"]}
-      source={imageSource}
-      alt={imageAlt}
-      rounded={imageRounded}
-      aspectRatio={imageAspectRatio}
-      data-prop-src="imageSource"
-      data-prop-alt="imageAlt"
-    />
+    {
+      imageSource ? (
+        <Image
+          slot="second"
+          class:list={["feature-split-image", reverse && "reverse"]}
+          source={imageSource}
+          alt={imageAlt}
+          rounded={imageRounded}
+          aspectRatio={imageAspectRatio}
+          data-prop-src="imageSource"
+          data-prop-alt="imageAlt"
+        />
+      ) : (
+        <div
+          slot="second"
+          class:list={["feature-split-image", "placeholder", reverse && "reverse"]}
+          data-prop-src="imageSource"
+          data-prop-alt="imageAlt"
+        />
+      )
+    }
   </Split>
 </CustomSection>
 
@@ -120,6 +131,38 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
   @layer page-sections {
     .feature-split-layout {
       container-type: inline-size;
+    }
+
+    .feature-split-image.placeholder {
+      align-items: center;
+      aspect-ratio: var(--ratio-portrait);
+      background:
+        radial-gradient(
+          circle at 40% 30%,
+          color-mix(in srgb, var(--color-brand) 18%, transparent),
+          transparent 48%
+        ),
+        radial-gradient(
+          circle at 70% 70%,
+          color-mix(in srgb, var(--color-spotlight) 16%, transparent),
+          transparent 45%
+        ),
+        var(--color-bg-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      justify-content: center;
+      min-height: 280px;
+      width: 100%;
+    }
+
+    .feature-split-image.placeholder::after {
+      color: var(--color-text-muted);
+      content: "Fan art placeholder";
+      font-family: var(--font-body);
+      font-size: var(--font-size-sm);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
   }
 </style>

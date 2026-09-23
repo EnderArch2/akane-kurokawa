@@ -1,40 +1,43 @@
-/* Light theme */
+/* Akane theme — stage theater palette */
 [data-theme="light"] {
   color-scheme: light;
 
-  --color-brand: var(--gray-12);
-  --color-brand-muted: var(--gray-9);
-  --color-brand-subtle: var(--gray-7);
-  --color-brand-on: var(--gray-0);
+  --color-brand: #243447;
+  --color-brand-muted: #3e8e8e;
+  --color-brand-subtle: #c9a24b;
+  --color-brand-on: #edf1f5;
+  --color-spotlight: #c9a24b;
+  --color-accent-soft: #c99b9b;
+  --color-hero: #0d1420;
 
-  --color-text: var(--gray-10);
-  --color-text-strong: var(--gray-12);
-  --color-text-muted: var(--gray-8);
-  --color-text-on-muted: var(--gray-12);
-  --color-text-on-brand: var(--gray-0);
-  --color-text-inverse: var(--gray-0);
-  --color-link: blue;
-  --color-link-hover: darkblue;
+  --color-text: #edf1f5;
+  --color-text-strong: #edf1f5;
+  --color-text-muted: #8a97a6;
+  --color-text-on-muted: #0d1420;
+  --color-text-on-brand: #edf1f5;
+  --color-text-inverse: #0d1420;
+  --color-link: #3e8e8e;
+  --color-link-hover: #c9a24b;
 
-  --color-bg: var(--gray-0);
-  --color-bg-surface: var(--gray-1);
-  --color-bg-muted: var(--gray-2);
-  --color-bg-accent: #d5fdff;
-  --color-bg-highlight: #fff9d6;
+  --color-bg: #0d1420;
+  --color-bg-surface: #152030;
+  --color-bg-muted: #1d2b3e;
+  --color-bg-accent: #243447;
+  --color-bg-highlight: var(--color-spotlight);
   --color-bg-brand: var(--color-brand);
   --color-bg-brand-muted: var(--color-brand-muted);
-  --color-bg-inverse: var(--gray-12);
+  --color-bg-inverse: #edf1f5;
 
-  --color-border: var(--gray-4);
-  --color-border-inputs: var(--gray-7);
-  --color-border-strong: var(--gray-10);
-  --color-border-subtle: var(--gray-1);
+  --color-border: #2d3f54;
+  --color-border-inputs: #3e8e8e;
+  --color-border-strong: #3e8e8e;
+  --color-border-subtle: #1d2b3e;
 
-  --color-state-hover: rgba(0, 0, 0, 0.04);
-  --color-state-active: rgba(0, 0, 0, 0.08);
-  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-state-hover: rgba(62, 142, 142, 0.08);
+  --color-state-active: rgba(201, 162, 75, 0.16);
+  --color-overlay: rgba(13, 20, 32, 0.72);
 
-  --color-focus-ring: rgba(0, 87, 255, 0.4);
+  --color-focus-ring: rgba(201, 162, 75, 0.55);
 
   --color-danger: #dc2626;
   --color-danger-hover: #b91c1c;

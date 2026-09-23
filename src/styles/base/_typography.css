@@ -25,7 +25,8 @@
 
     h1 {
       font-size: var(--font-size-heading-2xl);
-      line-height: 1.2;
+      letter-spacing: var(--font-heading-letter-spacing, -0.025em);
+      line-height: 1.15;
     }
 
     h2 {

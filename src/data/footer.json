@@ -1,38 +1,41 @@
 {
-  "logoSource": "/src/assets/images/component-docs/acs-logo.svg",
-  "logoAlternateSource": "/src/assets/images/component-docs/acs-logo-dark.svg",
-  "logoAlt": "Astro Component Starter",
+  "logoSource": "/images/logo.webp",
+  "logoAlternateSource": "/images/logo.webp",
+  "logoAlt": "Akane Kurokawa",
   "links": [
     {
-      "name": "Home",
+      "name": "Back to top",
       "path": "/"
     },
     {
-      "name": "Why",
-      "path": "/why/"
+      "name": "About Akane",
+      "path": "/#about"
     },
     {
-      "name": "Components",
-      "path": "/component-docs/"
+      "name": "Gallery",
+      "path": "/#gallery"
     },
     {
-      "name": "Blog",
-      "path": "/blog/"
+      "name": "Quotes",
+      "path": "/#quotes"
     }
   ],
   "socials": [
     {
       "icon": "social/github",
-      "link": "https://github.com"
+      "link": "https://github.com/EnderArch2",
+      "label": "View my Github profile"
     },
     {
-      "icon": "social/x",
-      "link": "https://x.com"
+      "icon": "social/youtube",
+      "link": "https://www.youtube.com/@enderarch9073",
+      "label": "Subscribe to my YouTube channel"
     },
     {
-      "icon": "social/linkedin",
-      "link": "https://linkedin.com"
+      "icon": "social/discord",
+      "link": "https://discord.com/invite/nYQNFdr",
+      "label": "Join my Discord server"
     }
   ],
-  "footerText": "© 2026 All rights reserved."
+  "footerText": "A fan-made tribute to Akane Kurokawa. Made by Ender Arch (her husband) 🩵"
 }

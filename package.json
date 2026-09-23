@@ -45,6 +45,7 @@
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
     "glob": "^13.0.6",
+    "gsap": "^3.15.0",
     "js-beautify": "^1.15.4",
     "js-yaml": "^4.1.1",
     "jszip": "^3.10.1",

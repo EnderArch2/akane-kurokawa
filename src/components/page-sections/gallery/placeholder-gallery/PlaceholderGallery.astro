@@ -1,0 +1,218 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import { readdir } from "node:fs/promises";
+import { join } from "node:path";
+
+type GalleryItem = {
+  source?: string;
+  alt?: string;
+  caption?: string;
+  tone?: string;
+};
+
+const {
+  eyebrow = "",
+  heading = "",
+  subtext = "",
+  items = [] as GalleryItem[],
+  autoDiscover = true,
+  galleryPath = "public/images/gallery",
+  sectionLabel,
+  colorScheme = "inherit",
+  backgroundColor,
+  class: className,
+  useDefaultEditableBinding = false,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+
+// Auto-discover images from gallery directory
+let allItems = [...items];
+
+if (autoDiscover) {
+  try {
+    const galleryDir = join(process.cwd(), galleryPath);
+    const files = await readdir(galleryDir);
+    
+    const imageFiles = files
+      .filter(file => /\.(webp|jpg|jpeg|png|gif)$/i.test(file))
+      .sort(); // Sort alphabetically
+    
+    // Add auto-discovered images that aren't already in manual items
+    const manualSources = items.map(item => item.source);
+    
+    imageFiles.forEach((file, index) => {
+      const imagePath = `/images/gallery/${file}`;
+      
+      // Only add if not manually defined
+      if (!manualSources.includes(imagePath)) {
+        allItems.push({
+          source: imagePath,
+          alt: `Akane gallery image ${index + 1}`,
+          caption: file.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' '),
+          tone: '#3E8E8E', // Default tone
+        });
+      }
+    });
+  } catch (error) {
+    console.warn(`Could not auto-discover gallery images: ${error.message}`);
+  }
+}
+---
+
+<CustomSection
+  class:list={["placeholder-gallery", className]}
+  label={sectionLabel}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical="4xl"
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+  useDefaultEditableBinding={useDefaultEditableBinding}
+  {...htmlAttributes}
+>
+  <SimpleText
+    class="eyebrow"
+    alignmentHorizontal="center"
+    data-prop="eyebrow"
+    text={eyebrow}
+  />
+  <Heading
+    level="h2"
+    size="xl"
+    alignmentHorizontal="center"
+    data-prop="heading"
+  >
+    {heading}
+  </Heading>
+  <SimpleText
+    class="gallery-intro"
+    alignmentHorizontal="center"
+    data-prop="subtext"
+    text={subtext}
+  />
+  <div
+    class="gallery-grid"
+    data-children-prop="items"
+  >
+    {
+      allItems.map((item) => (
+        <figure
+          class="gallery-tile"
+          data-gallery-item
+          data-editable="array-item"
+          data-id="page-sections/gallery/placeholder-gallery/item"
+          style={{ "--tile-tone": item.tone || "var(--color-brand)" }}
+        >
+          {item.source ? (
+            <img
+              src={item.source}
+              alt={item.alt || "Akane fan art"}
+              class="gallery-image"
+              loading="lazy"
+            />
+          ) : (
+            <div
+              class="gallery-placeholder"
+              role="img"
+              aria-label={item.alt || "Akane fan art placeholder"}
+            >
+              <span class="gallery-placeholder-label">Fan art placeholder</span>
+            </div>
+          )}
+          {item.caption && <figcaption>{item.caption}</figcaption>}
+        </figure>
+      ))
+    }
+  </div>
+</CustomSection>
+
+<style is:global>
+  @layer page-sections {
+    .placeholder-gallery {
+      .gallery-intro {
+        color: var(--color-text-muted);
+        margin-inline: auto;
+        max-width: 38rem;
+      }
+
+      .gallery-grid {
+        display: grid;
+        gap: var(--spacing-md);
+        grid-template-columns: repeat(12, 1fr);
+        margin-top: var(--spacing-2xl);
+      }
+
+      .gallery-tile {
+        grid-column: span 4;
+        margin: 0;
+
+        &:nth-child(2),
+        &:nth-child(5) {
+          grid-column: span 5;
+        }
+
+        &:nth-child(3),
+        &:nth-child(6) {
+          grid-column: span 3;
+        }
+      }
+
+      .gallery-placeholder {
+        align-items: end;
+        aspect-ratio: 4 / 5;
+        background: var(--tile-tone);
+        border-radius: var(--radius-md);
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        padding: var(--spacing-md);
+        position: relative;
+      }
+
+      .gallery-image {
+        border-radius: var(--radius-md);
+        display: block;
+        height: auto;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .gallery-placeholder-label {
+        color: color-mix(in srgb, var(--color-text) 40%, transparent);
+        font-family: var(--font-body);
+        font-size: var(--font-size-xs);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      figcaption {
+        color: var(--color-text-muted);
+        font-size: var(--font-size-sm);
+        margin-top: var(--spacing-sm);
+      }
+
+      @media (width < 700px) {
+        .gallery-tile,
+        .gallery-tile:nth-child(2),
+        .gallery-tile:nth-child(3),
+        .gallery-tile:nth-child(5),
+        .gallery-tile:nth-child(6) {
+          grid-column: span 6;
+        }
+      }
+
+      @media (width < 480px) {
+        .gallery-tile,
+        .gallery-tile:nth-child(2),
+        .gallery-tile:nth-child(3),
+        .gallery-tile:nth-child(5),
+        .gallery-tile:nth-child(6) {
+          grid-column: span 12;
+        }
+      }
+    }
+  }
+</style>
