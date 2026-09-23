@@ -2,8 +2,6 @@
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
 import SimpleText from "@core-elements/simple-text/SimpleText.astro";
-import { readdir } from "node:fs/promises";
-import { join } from "node:path";
 
 type GalleryItem = {
   source?: string;
@@ -11,6 +9,19 @@ type GalleryItem = {
   caption?: string;
   tone?: string;
 };
+
+// Public assets are not available to Vite's import graph, so keep the gallery
+// manifest build-safe instead of reading the filesystem from this component.
+const defaultGalleryFiles = [
+  "Makeup.webp",
+  "akane-1.webp",
+  "akane-2.webp",
+  "akane-3.webp",
+  "akane-4.webp",
+  "akane-5.webp",
+  "akane-6.webp",
+  "beach.webp",
+];
 
 const {
   eyebrow = "",
@@ -29,36 +40,24 @@ const {
 } = Astro.props;
 
 // Auto-discover images from gallery directory
-let allItems = [...items];
+const allItems = [...items];
 
 if (autoDiscover) {
-  try {
-    const galleryDir = join(process.cwd(), galleryPath);
-    const files = await readdir(galleryDir);
-    
-    const imageFiles = files
-      .filter(file => /\.(webp|jpg|jpeg|png|gif)$/i.test(file))
-      .sort(); // Sort alphabetically
-    
-    // Add auto-discovered images that aren't already in manual items
-    const manualSources = items.map(item => item.source);
-    
-    imageFiles.forEach((file, index) => {
-      const imagePath = `/images/gallery/${file}`;
-      
-      // Only add if not manually defined
-      if (!manualSources.includes(imagePath)) {
-        allItems.push({
-          source: imagePath,
-          alt: `Akane gallery image ${index + 1}`,
-          caption: file.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' '),
-          tone: '#3E8E8E', // Default tone
-        });
-      }
-    });
-  } catch (error) {
-    console.warn(`Could not auto-discover gallery images: ${error.message}`);
-  }
+  const galleryUrl = `/${galleryPath.replace(/^public\/?/, "").replace(/\\/g, "/")}`;
+  const manualSources = items.map((item) => item.source);
+
+  defaultGalleryFiles.forEach((file, index) => {
+    const imagePath = `${galleryUrl}/${file}`;
+
+    if (!manualSources.includes(imagePath)) {
+      allItems.push({
+        source: imagePath,
+        alt: `Akane gallery image ${index + 1}`,
+        caption: file.replace(/\.[^.]+$/, "").replace(/[-_]/g, " "),
+        tone: "#3E8E8E",
+      });
+    }
+  });
 }
 ---
 
